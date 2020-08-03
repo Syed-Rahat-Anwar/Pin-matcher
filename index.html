@@ -42,7 +42,7 @@
                                 <div onclick= "clearInput()"class="button">C</div>
                             </div>
                             <div>
-                                <button id="submit-btn" type="submit" class="submit-btn">Submit</button>
+                                <button id="submit" type="submit" class="submit-btn">Submit</button>
                                 <p class="action-left">3 try left</p>
                             </div>
                     </div>
@@ -72,11 +72,34 @@
 
        function insertNumber(number) {
        const calcInput = document.getElementById("calc-input").value;
-       document.getElementById("calc-input").value = calcInput  + number;
+       
+        document.getElementById("calc-input").value = calcInput  + number;
         
         };
+        
+        // pin matching
+        
+        
+        document.getElementById("submit").addEventListener("click", function(){
+        let fourDigitNumber  =document.getElementById("visible-pin").value;
+        let manuellyfourDialNumber= document.getElementById("calc-input").value;
 
-        function clearInput(){
+        if( fourDigitNumber == manuellyfourDialNumber){
+            document.getElementById("show").style.display= "block";
+            document.getElementById("hide").style.display= "none";
+
+        }
+        else{
+            document.getElementById("hide").style.display= "block";
+            document.getElementById("show").style.display= "none";
+        } 
+        
+         
+
+        }); 
+
+     // clear input 
+       function clearInput(){
         document.getElementById("calc-input").value= "";
         
         };
@@ -93,44 +116,8 @@
 
 
 
-       document.getElementById("submit-btn").addEventListener("click", function(){
-
-        if( result == calcInput){
-            document.getElementById("show").style.display= "block";
-        }
-        else{
-            document.getElementById("hide").style.display= "block";
-        }
-
-
-    })
-
-
-
        
 
-
-
-
-
-
-      
-      
-        
-
-        
-                  
-
-
-        
-
-
-        
-        
-
-        
-
-
-    </script>
+</script>
 </body>
 </html>
